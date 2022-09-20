@@ -25,8 +25,19 @@ def reverse_list(head):
     head.next = None
     return rest
 
-def palindrome(head):
-    return True
+def palindrome(right):
+    global head, left
+    left = head
+    if right == None:
+        return True
+
+    recvalue = palindrome(right.next)
+    if recvalue == False:
+        return False
+
+    value = (right.data == left.data)
+    left = left.next
+    return value
 
 if __name__ == "__main__":
     ##
